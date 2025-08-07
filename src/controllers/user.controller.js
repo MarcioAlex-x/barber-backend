@@ -22,6 +22,7 @@ module.exports = class UserController {
       const user = await User.findByPk(id);
 
       if(!user) return res.status(404).json({message:"Usuário não encontrado"})
+      if(user === null) return res.status(404).json({message:"Usuário não encontrado."})
 
       return res.status(200).json(user);
 
@@ -41,11 +42,11 @@ module.exports = class UserController {
       const userExist = await User.findOne({ where: { email } });
 
       if (userExist) {
-        return res.statu(400).json({ message: "E-mail já está em uso." });
+        return res.status(400).json({ message: "E-mail já está em uso." });
       }
 
       const salt = await bcrypt.genSalt(10);
-      const hashedPassword = bcrypt.hash(password.salt);
+      const hashedPassword = await bcrypt.hash(password, salt);
 
       const user = await User.create({
         name,
