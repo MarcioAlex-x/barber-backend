@@ -10,7 +10,7 @@ function verifyToken(req, res, next){
     }
 
     try {
-        jwt.verify(token, process.env.JWT_SECRET,{algorithms:['HS256']})
+        const decoded = jwt.verify(token, process.env.JWT_SECRET,{algorithms:['HS256']})
 
         req.userId = decoded.userId
         req.isAdmin = decoded.isAdmin
