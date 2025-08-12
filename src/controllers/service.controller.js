@@ -49,7 +49,7 @@ module.exports = class ServiceController{
                 price
             })
             
-            return res.status(201).status(service)
+            return res.status(201).json(service)
         } catch (error) {
             return res.status(500).json({message:error.message})
         }

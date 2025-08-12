@@ -5,6 +5,7 @@ const app = express()
 
 const userRoute = require('./routes/user.route')
 const serviceRoute = require('./routes/service.route')
+const authRoute = require('./routes/auth.route')
 
 PORT = process.env.PORT
 DB_HOST = process.env.DB_HOST
@@ -17,6 +18,7 @@ app.get('/api',(req,res)=>{
 })
 app.use(userRoute)
 app.use(serviceRoute)
+app.use(authRoute)
 
 conn.sync()
     .then(()=>{
