@@ -34,7 +34,6 @@ module.exports = class AuthController{
         )
 
         console.log(token)
-        console.log(payload)
         return res.status(200).json({
             message:'Login realizado com sucesso.',
             token,
