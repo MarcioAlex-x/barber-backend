@@ -31,7 +31,7 @@ API RESTful para gerenciar usuários, serviços e agendamentos de uma barbearia.
 # Arquivo: .env.example
 
 # Configuração da Aplicação
-PORT=3000
+PORT=3001
 
 # Configuração do Banco de Dados (exemplo para PostgreSQL)
 DB_NAME=barbearia_db
