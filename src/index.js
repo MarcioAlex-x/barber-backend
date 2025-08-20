@@ -18,8 +18,8 @@ app.use(express.json())
 app.get('/api',(req,res)=>{
     res.json({message:'This app is ON.'})
 })
-app.use(userRoute)
-app.use(serviceRoute)
+app.use('/user',userRoute)
+app.use('/service',serviceRoute)
 app.use(authRoute)
 
 conn.sync()
